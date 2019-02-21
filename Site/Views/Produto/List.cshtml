@@ -1,0 +1,26 @@
+﻿@*
+    Não precisa, pois a referencia já está no arquivo _ViewImports.cshtml
+
+    @using Site.ViewModels;
+    @model ProdutoListViewModel
+*@
+
+@{
+    ViewData["Title"] = "Lista de Produtos";
+}
+
+<div class="row marginTop">
+    <div class="container">
+        <h3>Produtos Disponíveis</h3>
+        <br />
+        <h4>Categoria: @Model.Categoria </h4>  @* Categoria q está no ProdutoListViewModel, tipo string *@
+    </div>
+
+    @foreach (Produto produto in Model.Produtos)
+    {
+        
+        @await Html.PartialAsync("Detalhes", produto) @* Chama a View Detalhes, que está na Shared passando a lista de produtos *@
+
+    }
+
+</div>

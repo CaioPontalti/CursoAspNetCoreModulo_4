@@ -1,0 +1,15 @@
+﻿@model HomeViewModel
+
+@await Html.PartialAsync("Carrousel")
+
+<h2>Produtos mais vendidos</h2>
+
+<div class="row marginTop">
+
+    @foreach (Produto produto in Model.ProdutosMaisVendidos)
+    {
+        @await Html.PartialAsync("Detalhes", produto) @* Chama a View Detalhes, dentro Shared passando a lista de produtos *@
+
+    }
+
+</div>
